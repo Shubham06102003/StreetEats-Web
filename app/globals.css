@@ -24,3 +24,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Add any other custom dark mode styles here */
+/* Input field text as black in dark mode */
+html.dark input, html.dark textarea {
+  color: #000;
+}
+
+
+/* Card styles */
+.card {
+  background-color: #fff;
+  color: #333;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+html.dark .card {
+  background-color: #1e1c2e;
+  color: #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
