@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import Head from "next/head"; // Import Head for setting metadata in the head section
 import { LoadScript } from "@react-google-maps/api"; // Import LoadScript
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./globals.css";
 
 export default function RootLayout({ children }) {
@@ -57,6 +59,7 @@ export default function RootLayout({ children }) {
           {/* Render the rest of the app */}
           {children}
         </LoadScript>
+        <ToastContainer position="top-right" autoClose={5000} />
       </body>
     </html>
   );

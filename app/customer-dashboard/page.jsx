@@ -51,7 +51,7 @@ export default function CustomerDashboard() {
 
   return (
     <div>
-      <Header />
+      <Header/>
       <div className="flex flex-col items-center ">
         {/* Search Bar */}
         <div className="w-full max-w-md mt-6">
