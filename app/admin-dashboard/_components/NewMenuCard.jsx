@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { getAuth } from "firebase/auth"; // Firebase Auth to get current user's email
 import { db } from "@/lib/firebase"; // Import Firebase Firestore
@@ -10,7 +12,7 @@ function NewMenuCard({ setShowNewMenu, refreshMenus }) {
   const [description, setDescription] = useState("");
   const [imageFile, setImageFile] = useState(null);
   const [uploading, setUploading] = useState(false);
-  const [price,setPrice] = useState("");
+  const [price, setPrice] = useState("");
 
   const auth = getAuth();
   const userEmail = auth.currentUser?.email; // Get current user's email
@@ -66,7 +68,7 @@ function NewMenuCard({ setShowNewMenu, refreshMenus }) {
           description,
           image: imageURL, // Store uploaded image URL
           email: userEmail, // Add email of the logged-in user
-          price: price
+          price: price,
         });
 
         // Clear input fields
@@ -91,27 +93,27 @@ function NewMenuCard({ setShowNewMenu, refreshMenus }) {
   };
 
   return (
-    <div className="bg-white p-6 w-full max-w-md mx-auto">
-      <h2 className="text-xl font-bold mb-4">Add New Menu Item</h2>
+    <div className="bg-white dark:bg-[#2a2a3c] p-6 w-full max-w-md mx-auto rounded-md">
+      <h2 className="text-xl font-bold mb-4 text-black dark:text-[#e0e0e0]">Add New Menu Item</h2>
       <input
         type="text"
         placeholder="Menu Name"
         value={menuName}
         onChange={(e) => setMenuName(e.target.value)}
-        className="border border-gray-300 rounded-md p-2 w-full mb-3"
+        className="border dark:border-[#4b4b6b] dark:bg-[#1e1c2e] dark:text-[#e0e0e0] rounded-md p-2 w-full mb-3"
       />
       <input
         type="text"
         placeholder="Category"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
-        className="border border-gray-300 rounded-md p-2 w-full mb-3"
+        className="border dark:border-[#4b4b6b] dark:bg-[#1e1c2e] dark:text-[#e0e0e0] rounded-md p-2 w-full mb-3"
       />
       <textarea
         placeholder="Description (Max 125 Characters)"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        className="border border-gray-300 rounded-md p-2 w-full mb-3"
+        className="border dark:border-[#4b4b6b] dark:bg-[#1e1c2e] dark:text-[#e0e0e0] rounded-md p-2 w-full mb-3"
         maxLength={125}
       />
       <input
@@ -119,18 +121,18 @@ function NewMenuCard({ setShowNewMenu, refreshMenus }) {
         placeholder="Price"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
-        className="border border-gray-300 rounded-md p-2 w-full mb-3"
+        className="border dark:border-[#4b4b6b] dark:bg-[#1e1c2e] dark:text-[#e0e0e0] rounded-md p-2 w-full mb-3"
       />
       <input
         type="file"
         accept="image/*"
         onChange={(e) => setImageFile(e.target.files[0])}
-        className="border border-gray-300 rounded-md p-2 w-full mb-3"
+        className="border dark:border-[#4b4b6b] dark:bg-[#1e1c2e] dark:text-[#e0e0e0] rounded-md p-2 w-full mb-3"
       />
       <button
         onClick={handleSubmit}
         disabled={uploading}
-        className="bg-blue-500 text-white px-4 py-2 rounded-md w-full"
+        className="bg-blue-500 text-white px-4 py-2 rounded-md w-full hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-600"
       >
         {uploading ? "Uploading..." : "Submit"}
       </button>

@@ -4,6 +4,7 @@ import CategoryCircle from "./_components/CategoryCircle";
 import NearbyStreetfoodCard from "./_components/NearbyStreetfoodCard";
 import PopularStreetfoodCard from "./_components/PopularStreetfoodCard";
 import { useRef, useState, useEffect } from "react";
+import { getAuth } from "firebase/auth";
 
 export default function CustomerDashboard() {
   const scrollContainerRef = useRef(null);
@@ -13,6 +14,9 @@ export default function CustomerDashboard() {
 
   // Dynamic placeholder logic
   const [currentFoodType, setCurrentFoodType] = useState("pizza");
+
+   const auth = getAuth();
+   const user = auth.currentUser;
 
   useEffect(() => {
     const foodTypes = ["pizza", "burger", "sandwich", "chinese"];
@@ -84,7 +88,7 @@ export default function CustomerDashboard() {
         </div>
 
         {/* Nearby Streetfood Section */}
-        <NearbyStreetfoodCard />
+        <NearbyStreetfoodCard customerEmail={user.email}/>
 
         {/* Popular Streetfood Section */}
         <PopularStreetfoodCard />
